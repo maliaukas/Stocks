@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,16 +14,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import maliauka.sasha.yandexstocks.data.util.Result
 import maliauka.sasha.yandexstocks.domain.model.Stock
 import maliauka.sasha.yandexstocks.data.repository.StocksRepository
+import maliauka.sasha.yandexstocks.presentation.list.viewmodel.BaseListViewModel
 import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(private val stocksRepository: StocksRepository) :
-    ViewModel() {
+class SearchViewModel @Inject constructor(override val stocksRepository: StocksRepository) :
+    BaseListViewModel() {
 
     private val _showResultList = MutableStateFlow(false)
     val showResultList: StateFlow<Boolean>
@@ -59,12 +63,13 @@ class SearchViewModel @Inject constructor(private val stocksRepository: StocksRe
         search(query.value)
     }
 
-//    private var searchJob: Job? = null
-//    private var collectJob: Job? = null
+    private var searchJob: Job? = null
+    private var collectJob: Job? = null
 
     fun search(newQuery: String) {
         if (query.value != newQuery) {
-            viewModelScope.launch {
+            searchJob?.cancel()
+            searchJob = viewModelScope.launch {
                 stocksRepository.search(newQuery)
             }
 
@@ -89,9 +94,8 @@ class SearchViewModel @Inject constructor(private val stocksRepository: StocksRe
     private fun onSuccess(data: Flow<List<Stock>>) {
         hideAllMessagesAndProgressBar()
 
-        //collectJob?.cancel()
-        //collectJob =
-        viewModelScope.launch {
+        collectJob?.cancel()
+        collectJob = viewModelScope.launch {
             data.collectLatest {
                 _searchResult.emit(it)
                 _showEmptyMessage.emit(it.isEmpty())
@@ -109,6 +113,9 @@ class SearchViewModel @Inject constructor(private val stocksRepository: StocksRe
         when (e) {
             is HttpException -> {
                 showOnlyApiCallsMessage()
+            }
+            is CancellationException -> {
+                // ignore
             }
             else -> {
                 showOnlyErrorMessage(e.message.toString())
@@ -142,5 +149,9 @@ class SearchViewModel @Inject constructor(private val stocksRepository: StocksRe
         _showProgressBar.value = false
         _showApiCallsMessage.value = false
     }
+
+    // is not used
+    override val stocks: Flow<List<Stock>>
+        get() = emptyFlow()
 }
 

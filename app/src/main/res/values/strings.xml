@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YandexStocks</string>
+    <string name="app_name">Stocks</string>
     <string name="tab_text_stocks">Stocks</string>
     <string name="tab_text_favourite">Favourite</string>
 
@@ -26,7 +26,7 @@
     <string name="light_theme_value">MODE_NIGHT_NO</string>
     <string name="dark_theme_value">MODE_NIGHT_YES</string>
     <string name="auto_theme_value">MODE_NIGHT_FOLLOW_SYSTEM</string>
-    <string name="api_calls_message">API calls on my free plan are over for today! Displaying cached results...</string>
+    <string name="api_calls_message">API calls on my free plan are over for today! Displaying cached results…</string>
 
     <string-array name="prefs_color_theme_entries">
         <item>@string/light_theme</item>

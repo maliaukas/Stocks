@@ -20,7 +20,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         val sectionsPagerAdapter =
-            SectionsPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+            SectionsPagerAdapter(childFragmentManager, lifecycle)
 
         binding.viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs.tabLayout

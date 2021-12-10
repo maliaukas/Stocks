@@ -15,8 +15,4 @@ class StocksViewModel @Inject constructor(
 
     override val stocks: Flow<List<Stock>>
         get() = stocksRepository.stocks
-
-//    val showErrorMessage = stocksRepository.showStocksError
-//
-//    val showProgressBar= stocksRepository.showStocksLoading
 }

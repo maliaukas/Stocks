@@ -8,6 +8,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,7 @@ import maliauka.sasha.yandexstocks.R
 import maliauka.sasha.yandexstocks.databinding.FragmentSearchBinding
 import maliauka.sasha.yandexstocks.presentation.list.StocksAdapter
 import maliauka.sasha.yandexstocks.presentation.list.viewmodel.StocksViewModel
+import maliauka.sasha.yandexstocks.presentation.main.MainFragmentDirections
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,7 +26,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private val binding by viewBinding<FragmentSearchBinding>()
 
     private val searchViewModel: SearchViewModel by activityViewModels()
-    private val stocksViewModel: StocksViewModel by activityViewModels()
 
     @Inject
     lateinit var stocksAdapter: StocksAdapter
@@ -41,7 +42,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         stocksAdapter.setOnFavButtonClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    stocksViewModel.onFavButtonClick(it)
+                    searchViewModel.onFavButtonClick(it)
                 }
             }
         }
@@ -49,7 +50,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         stocksAdapter.setOnLoadImageFailedListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    stocksViewModel.setStockColorPlaceHolder(it)
+                    searchViewModel.setStockColorPlaceHolder(it)
                 }
             }
         }

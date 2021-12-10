@@ -25,7 +25,7 @@ abstract class BaseListFragment<VM : BaseListViewModel> : Fragment(R.layout.frag
 
     protected abstract val viewModel: VM
 
-    protected val binding by viewBinding<FragmentListBinding>()
+    private val binding by viewBinding<FragmentListBinding>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -90,28 +90,6 @@ abstract class BaseListFragment<VM : BaseListViewModel> : Fragment(R.layout.frag
                 }
             }
         }
-
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.showErrorMessage.collectLatest { (show, message) ->
-//                    if (show) {
-//                        Toast.makeText(
-//                            requireContext(),
-//                            "Error occurred: $message",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-//                }
-//            }
-//        }
-//
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.showProgressBar.collectLatest { show ->
-//                    binding.progressBar.isVisible = show
-//                }
-//            }
-//        }
     }
 }
 
