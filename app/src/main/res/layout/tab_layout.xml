@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.tabs.TabLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_layout"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:backgroundTint="?android:colorBackground"
+    app:tabContentStart="16dp"
+    app:tabIndicatorColor="@color/transparent"
+    app:tabMode="scrollable"
+    app:tabSelectedTextColor="?colorOnBackground"
+    app:tabTextAppearance="@style/MyTabTextStyle"
+    app:tabTextColor="?attr/colorSecondary">
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+
+        android:text="@string/tab_text_stocks" />
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/tab_text_favourite" />
+
+</com.google.android.material.tabs.TabLayout>
+

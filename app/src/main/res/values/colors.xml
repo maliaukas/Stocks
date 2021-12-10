@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="dark_grey">#121212</color>
+    <color name="light_grey">#778899</color>
+
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="card_color">#f0f4f7</color>
+    <color name="card_color_night">#3b586f</color>
+
+    <color name="red">#B22424</color>
+    <color name="red_night">#f9baba</color>
+
+    <color name="green">#008210</color>
+    <color name="green_night">#35e837</color>
+</resources>

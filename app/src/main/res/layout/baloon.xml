@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="99dp"
+    android:layout_height="99dp"
+    android:background="@drawable/baloon_with_dot"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_cost_baloon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textColor="?android:colorBackground"
+        android:textSize="16sp"
+        tools:text="234.4 P" />
+
+    <TextView
+        android:id="@+id/tv_date_baloon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textColor="?colorSurface"
+        android:textSize="12sp"
+        tools:text="25 nov 2021" />
+</LinearLayout>

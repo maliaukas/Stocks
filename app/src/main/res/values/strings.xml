@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">YandexStocks</string>
+    <string name="tab_text_stocks">Stocks</string>
+    <string name="tab_text_favourite">Favourite</string>
+
+    <string name="image_company_logo_description">Company logo</string>
+    <string name="ib_make_favourite_description">Make favourite</string>
+    <string name="ib_unmake_favourite_description">Unmake favourite</string>
+    <string name="popular_requests">Popular requests</string>
+    <string name="search_hint">Find company or ticker</string>
+    <string name="search">Search</string>
+    <string name="close_search">Close search</string>
+    <string name="nothing_found">Nothing found!</string>
+    <string name="fab_settings_content_desc">Settings</string>
+    <string name="fab_home_content_desc">Settings</string>
+
+    <string name="prefs_color_theme_title">Theme options</string>
+    <string name="prefs_color_theme_summary">Select app color theme. Current: %1$s</string>
+    <string name="prefs_color_theme_default">@string/auto_theme</string>
+    <string name="prefs_color_theme_key">COLOR_THEME</string>
+
+    <string name="light_theme">Light</string>
+    <string name="dark_theme">Dark</string>
+    <string name="auto_theme">System default</string>
+
+    <string name="light_theme_value">MODE_NIGHT_NO</string>
+    <string name="dark_theme_value">MODE_NIGHT_YES</string>
+    <string name="auto_theme_value">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="api_calls_message">API calls on my free plan are over for today! Displaying cached results...</string>
+
+    <string-array name="prefs_color_theme_entries">
+        <item>@string/light_theme</item>
+        <item>@string/dark_theme</item>
+        <item>@string/auto_theme</item>
+    </string-array>
+
+    <integer-array name="prefs_color_theme_values_int">
+        <item>1</item>
+        <item>2</item>
+        <item>-1</item>
+    </integer-array>
+
+    <string-array name="prefs_color_theme_values">
+        <item>@string/light_theme_value</item>
+        <item>@string/dark_theme_value</item>
+        <item>@string/auto_theme_value</item>
+    </string-array>
+</resources>
