@@ -32,7 +32,7 @@ Search with hints | Search result
 
 Portrait orientation | Landscape orientation
 :----------:|:------------: 
-<img src="https://github.com/maliaukas/Stocks/blob/master/img/detail.jpg" alt="Portrait orientation" height="700"/>    |  <img src="https://github.com/maliaukas/Stocks/blob/master/img/detail_land.jpg" alt="Landscape orientation" width="700"/>   
+<img src="https://github.com/maliaukas/Stocks/blob/master/img/detail.jpg" alt="Portrait orientation" width="300"/>    |  <img src="https://github.com/maliaukas/Stocks/blob/master/img/detail_land.jpg" alt="Landscape orientation" width="700"/>   
 
 - The user can choose a color theme: light, dark, system default.
 
